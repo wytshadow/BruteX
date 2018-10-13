@@ -36,7 +36,7 @@ cd /usr/share/brutex/wordlists/
 gunzip rockyou.txt.gz
 cat rockyou.txt >> password.lst
 cat password.lst |sort -u > password.lst.1
-mv password.lst1 password.lst
+mv password.lst.1 password.lst
 rm rockyou.txt
 echo -e "$OKORANGE + -- --=[Done!$RESET"
 
