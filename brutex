@@ -167,7 +167,7 @@ then
 	echo -e "$COLOR1 + -- --=[Port 139 closed... skipping.$RESET"
 else
 	echo -e "$COLOR2 + -- --=[Port 139 opened... running tests...$RESET"
-	hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $TARGET smb -S 139 -t $THREADS -e ns
+	hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $TARGET smb -S 139 -t 1 -e ns
 fi
 
 if [ -z "$port_161" ]
@@ -210,8 +210,8 @@ then
 	echo -e "$COLOR1 + -- --=[Port 445 closed... skipping.$RESET"
 else
 	echo -e "$COLOR2 + -- --=[Port 445 opened... running tests...$RESET"
-	hydra -C $WINDOWS_USER_PASS $TARGET smb -S 445 -t $THREADS -e ns
-	hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $TARGET smb -S 445 -t $THREADS -e ns
+	hydra -C $WINDOWS_USER_PASS $TARGET smb -S 445 -t 1 -e ns
+	hydra -L $WINDOWS_USER_LIST -P $PASS_FILE $TARGET smb -S 445 -t 1 -e ns
 fi
 
 if [ -z "$port_512" ]
