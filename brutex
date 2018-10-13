@@ -76,9 +76,9 @@ if [ -z "$PORT" ]
 then
 	#removed 80,443,8000, and 8080
 	#nmap -T4 -P0 --open $TARGET -p21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,8000,8080,6667 -oX $LOOT_DIR/nmap-$TARGET.xml
-	nmap -Pn -sT -sU --open $TARGET -pT:21,22,23,25,53,110,139,162,389,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,U:161 -oX $LOOT_DIR/nmap-$TARGET.xml
+	nmap -n -Pn -sT -sU --open $TARGET -pT:21,22,23,25,53,110,139,162,389,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,U:161 -oX $LOOT_DIR/nmap-$TARGET.xml
 else
-	nmap -Pn --open $TARGET -p $PORT -oX $LOOT_DIR/nmap-$TARGET.xml
+	nmap -n -Pn --open $TARGET -p $PORT -oX $LOOT_DIR/nmap-$TARGET.xml
 fi
 echo ""
 echo -e "$COLOR3################################### Running Brute Force ############################$RESET"
