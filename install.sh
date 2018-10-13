@@ -31,7 +31,13 @@ mkdir loot 2> /dev/null
 chmod +x $BRUTEX_INSTALL_DIR/brutex
 rm -f /usr/bin/brutex 2> /dev/null
 ln -s /usr/share/brutex/brutex /usr/bin/brutex
-
+cp /usr/share/wordlists/rockyou.txt.gz /usr/share/brutex/wordlists/
+cd /usr/share/brutex/wordlists/
+gunzip rockyou.txt.gz
+cat rockyou.txt >> password.lst
+cat password.lst |sort -u > password.lst.1
+mv password.lst1 password.lst
+rm rockyou.txt
 echo -e "$OKORANGE + -- --=[Done!$RESET"
 
 
